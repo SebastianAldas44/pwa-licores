@@ -1,0 +1,80 @@
+<div class="h-full overflow-x-hidden overflow-y-auto relative">
+    <div class="flex flex-wrap justify-center h-full">
+        <div class="w-full max-w-5xl py-3 h-full">
+            <div class="flex flex-wrap justify-center items-center w-full h-full" *ngIf="!showCategorias">
+                <div class="w-1/3 px-3 text-center overflow-hidden">
+                    <div class="flex flex-wrap justify-center cursor-pointer" (click)="getBebidas('c', 'Ordinary_Drink')">
+                        <img
+                            src="https://images.ecestaticos.com/bKk8Bn9K2l6atrhElxjmcQy_G4w=/1x195:1989x1311/1600x900/filters:fill(white):format(jpg)/f.elconfidencial.com%2Foriginal%2F2db%2F1d6%2Fc60%2F2db1d6c6090ea66fbb95d6b391edc903.jpg"
+                            alt="Bebidas Alcohólicas"
+                            class="h-40 w-auto"
+                        >
+                        <div class="w-full text-center">
+                            <span class="">Bebidas Ordinarias</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 px-3 text-center overflow-hidden">
+                    <div class="flex flex-wrap justify-center cursor-pointer" (click)="getBebidas('c', 'Cocktail')">
+                        <img
+                            src="https://www.drinksco.es/blog/assets/uploads/sites/2/2020/05/cocktail-3327242_1920-1170x780.jpg"
+                            alt="Cocteles"
+                            class="h-40 w-auto"
+                        >
+                        <div class="w-full">
+                            <span class="">Cocteles</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 px-3 text-center overflow-hidden">
+                    <div class="flex flex-wrap justify-center cursor-pointer" (click)="getBebidas('a', 'Alcoholic')">
+                        <img
+                            src="https://i.blogs.es/7fc543/alcohol/1366_2000.jpg"
+                            alt="Bebidas Alcohólicas"
+                            class="h-40 w-auto"
+                        >
+                        <div class="w-full text-center">
+                            <span class="">Bebidas Alcohólicas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-1/3 px-3 text-center overflow-hidden">
+                    <div class="flex flex-wrap justify-center cursor-pointer" (click)="getBebidas('a', 'Non_Alcoholic')">
+                        <img
+                            src="https://www.ingredion.com/content/dam/ingredion/mx-images/hero-desktop/AEM-Categories-Hero-Desktop-Alcoholic_beverages.jpg"
+                            alt="Bebidas No Alcohólicas"
+                            class="h-40 w-auto"
+                        >
+                        <div class="w-full text-center">
+                            <span class="">Bebidas No Alcohólicas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full h-full" *ngIf="showCategorias">
+                <div class="flex flex-wrap justify-center items-start" *ngIf="bebidas.length > 0">
+                    <div *ngFor="let bebida of bebidas" class="w-1/5 p-3 r overflow-hidden">
+                        <div class="flex flex-wrap justify-center cursor-pointer" (click)="getBebida(bebida.idDrink)">
+                            <img
+                                [src]="bebida.strDrinkThumb"
+                                alt="Bebidas Alcohólicas"
+                                class="h-28 w-auto"
+                            >
+                            <div class="w-full text-center">
+                                <span class="">{{ bebida.strDrink }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="absolute bottom-1 right-1" *ngIf="showCategorias">
+        <button
+            class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-lg"
+            (click)="showCategorias = !showCategorias"
+        >
+            Regresar
+        </button>
+    </div>
+</div>
